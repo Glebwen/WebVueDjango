@@ -78,7 +78,11 @@ pipeline {
                     .venv\\Scripts\\python.exe manage.py check
                 """
                 bat """
-                    nssm restart WebGleb5Deploy || echo Service not installed yet, skipping restart
+                    nssm install WebGleb5Deploy "C:\deploy\WebGleb5\.venv\Scripts\python.exe" "manage.py runserver 0.0.0.0:8001"
+                    nssm set WebGleb5Deploy AppDirectory C:\deploy\WebGleb5
+                    nssm set WebGleb5Deploy AppStdout C:\deploy\WebGleb5\service.log
+                    nssm set WebGleb5Deploy AppStderr C:\deploy\WebGleb5\service.err.log
+                    nssm start WebGleb5Deploy
                 """
             }
         }

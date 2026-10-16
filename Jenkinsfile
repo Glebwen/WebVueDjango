@@ -77,6 +77,9 @@ pipeline {
                     .venv\\Scripts\\python.exe manage.py collectstatic --noinput
                     .venv\\Scripts\\python.exe manage.py check
                 """
+                bat """
+                    nssm restart WebGleb5Deploy || echo Service not installed yet, skipping restart
+                """
             }
         }
     }

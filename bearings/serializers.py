@@ -42,11 +42,11 @@ class FeedbackSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BearingSerializer(serializers.ModelSerializer):
-    kolichestvo = serializers.IntegerField(source='ammount')
+    kolichestvo2 = serializers.IntegerField(source='ammount')
 
     class Meta:
         model = Bearing
-        fields = ['id', 'name', 'inner_d', 'outer_d', 'height', 'price', 'kolichestvo', 'picture']
+        fields = ['id', 'name', 'inner_d', 'outer_d', 'height', 'price', 'kolichestvo2', 'picture']
 
 class OrderCompositionSerializer(serializers.ModelSerializer):
     order = OrderSerializer(read_only=True)

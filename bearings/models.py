@@ -53,6 +53,7 @@ class Bearing(models.Model):
     ammount = models.IntegerField("Количество")
     picture = models.ImageField("Изображение", null=True, upload_to="bearings")
 
+
     class Meta:
         verbose_name = "Подшипник"
         verbose_name_plural = "Подшипники"

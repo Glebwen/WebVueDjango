@@ -17,7 +17,7 @@ const username = ref('');
 const password = ref('');
 
 async function login() {
-  const r = await axios.post("api/user/login/", {
+  const r = await axios.post("/api/user/login/", {
     username: username.value,
     password: password.value,
   })

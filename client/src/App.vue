@@ -9,6 +9,10 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+onBeforeMount(async () => {
+    await userInfoStore.fetchUserInfo();
+});
+
 const userInfoStore = useUserStore();
 const {
   isAuthenticated,
@@ -16,7 +20,7 @@ const {
 } = storeToRefs(userInfoStore)
 
 async function logout() {
-  const r = await axios.post("api/user/logout/")
+  const r = await axios.post("/api/user/logout/")
   userInfoStore.fetchUserInfo()
   router.push("/login")
 }

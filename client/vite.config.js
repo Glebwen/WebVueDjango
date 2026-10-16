@@ -15,20 +15,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-    server:{
-    proxy:{
-      '/api': {
-        target: "http://localhost:8000"
-      },
-      '/admin': {
-        target: "http://localhost:8000"
-      },
-      '/static': {
-        target: "http://localhost:8000"
-      },
-      '/media': {
-        target: "http://localhost:8000"
-      },
+  server: {
+    proxy: {
+      '/api':    { target: 'http://localhost:8000', changeOrigin: true, cookieDomainRewrite: '' },
+      '/admin':  { target: 'http://localhost:8000', changeOrigin: true, cookieDomainRewrite: '' },
+      '/static': { target: 'http://localhost:8000', changeOrigin: true },
+      '/media':  { target: 'http://localhost:8000', changeOrigin: true },
     }
   }
 })
